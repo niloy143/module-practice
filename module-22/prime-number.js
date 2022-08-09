@@ -2,27 +2,21 @@
     Prime number can't be divided by any number except 1 and itself.
 */
 
-const theNumber = 17;
+const theNumber = 1084051191974761;
 
-function isPrimeNumber(number) {
-    const maxDivident = Math.ceil(number/2);
-    let tempVar = 0;
-    let isPrime;
-    for (let i=2; i<maxDivident; i++) {
-        if(number % i === 0) {
-            tempVar++;
-        }
-        else {
-            continue;
-        }
-    }
-    if(tempVar > 0) {
-        isPrime = false;
+function isPrimeNumber(number){
+    let tempNumber = Math.sqrt(number);
+    if(Number.isInteger(tempNumber)){
+        return false;
     }
     else {
-        isPrime = true;
+        for(let i=2; i<tempNumber; i++) {
+            if(number % i === 0) {
+                return false;
+            }
+        }
     }
-    return isPrime;
+    return true;
 }
 
 console.log(isPrimeNumber(theNumber));
